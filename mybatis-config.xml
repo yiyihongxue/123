@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--    用于显示查询数据库记录详细日志-->
+    <!--    详见：https://blog.csdn.net/lgl782519197/article/details/109275096-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--    配置数据源  交给spring去做-->
+    <!--    typeAliases作用很简单，就是方便你使用对象的时候不用带上那么长的包路径。。-->
+    <!--    例如com.asdf.gawega.faseggg.User配置aliases为User-->
+    <!--    在mappper.xml里面可以直接用type="User",而不需要用type="com.asdf.gawega.faseggg.User"-->
+    <!--    alias中文翻译是别名，就是一个引用。方便写。-->
+    <!--    详见：https://tieba.baidu.com/p/2946768166-->
+    <typeAliases>
+        <package name="com.pojo"/>
+    </typeAliases>
+
+    <!--    只有配置了 mappers 信息后，MyBatis 才知道去哪里加载 Mapper 映射文件，
+        在日常开发中，可以根据项目中 Mapper 的配置偏好，选择整合配置文件的配置方式。-->
+    <!--    详见：https://blog.csdn.net/fageweiketang/article/details/80835733-->
+    <mappers>
+        <mapper class="com.mapper.BookMapper"/>
+    </mappers>
+</configuration>
